@@ -14,4 +14,8 @@ export class AppComponent {
 			this.isAuth = true;
 		}, 2000);
 	}
+
+	onAllumer() {
+		console.log('On allume tout !');
+	}
 }
