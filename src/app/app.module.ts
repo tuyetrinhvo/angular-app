@@ -3,12 +3,11 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MyCompoComponent } from './my-compo/my-compo.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-	declarations: [ AppComponent, MyCompoComponent, AppareilComponent ],
+	declarations: [ AppComponent, AppareilComponent ],
 	imports: [ BrowserModule, AppRoutingModule, FormsModule ],
 	providers: [],
 	bootstrap: [ AppComponent ]
