@@ -1,16 +1,47 @@
-<li [ngClass]="{
-    'list-group-item':true,
-    'list-group-item-success': appareilStatus === 'allumé',
-    'list-group-item-danger': appareilStatus === 'éteint'}">
-  <div class="row">
-    <h4 class="col-lg-11 col-sm-11"
-        [ngStyle]="{color: getColor()}">Appareil : {{ appareilName }} - Statut : {{ getStatus() }}</h4>
-    <div class="col-lg-1 col-sm-1 mb-2">
-      <div style="width: 20px;height: 20px;background-color: red;"
-           *ngIf="appareilStatus === 'éteint'"></div>
+<style>
+  .content {
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+</style>
+<div class="content" role="main">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-lg-12">
+        <h2 class="mb-5">Mes appareils</h2>
+        <p class="mb-3">Mis à jour le {{ lastUpdate | async | date: 'dd/M/y, à H:mm' }}</p>
+        <ul class="list-group">
+          <li *ngFor="let appareil of appareils"
+              [ngClass]="{
+              'list-group-item':true,
+              'list-group-item-success': appareil.status === 'allumé',
+              'list-group-item-danger': appareil.status === 'éteint'}">
+            <div class="row">
+              <h4 class="col-lg-11 col-sm-11"
+                  [ngStyle]="{color: getColor(appareil.status)}">Appareil : {{ appareil.name }} - Statut :
+                {{ appareil.status }}</h4>
+              <div class="col-lg-1 col-sm-1 mb-2">
+                <div style="width: 20px;height: 20px;background-color: red;"
+                     *ngIf="appareil.status === 'éteint'"></div>
+              </div>
+            </div>
+            <input type="text"
+                   class="form-control"
+                   [(ngModel)]="appareil.name">
+          </li>
+        </ul>
+        <button class="btn btn-success mt-5"
+                [disabled]="!isAuth"
+                (click)="onAllumer()">Tout allumer</button>
+      </div>
     </div>
   </div>
-  <input type="text"
-         class="form-control"
-         [(ngModel)]="appareilName">
-</li>
+
+</div>
+
+<router-outlet></router-outlet>

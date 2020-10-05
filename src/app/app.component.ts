@@ -3,42 +3,8 @@ import { Component } from '@angular/core';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: [ './app.component.scss' ]
+	styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-	isAuth = false;
-	lastUpdate = new Promise((resolve, reject) => {
-		const date = new Date();
-		setTimeout(() => {
-			resolve(date);
-		}, 2000);
-	});
-	appareils = [
-		{
-			name: 'Machine à laver',
-			status: 'éteint'
-		},
-		{
-			name: 'Frigo',
-			status: 'allumé'
-		},
-		{
-			name: 'Lave vaisselles',
-			status: 'éteint'
-		},
-		{
-			name: 'Télé',
-			status: 'allumé'
-		}
-	];
-
-	constructor() {
-		setTimeout(() => {
-			this.isAuth = true;
-		}, 2000);
-	}
-
-	onAllumer() {
-		console.log('On allume tout !');
-	}
+	title = 'angular-app';
 }
