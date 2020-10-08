@@ -11,6 +11,7 @@ export class PostListItemComponent implements OnInit {
   @Input() postContent: string;
   @Input() postCreatedAt: string;
   @Input() postLoveIts: number;
+  @Input() postIndex: number;
 
   constructor() { }
 

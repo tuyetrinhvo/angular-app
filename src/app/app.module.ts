@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostListItemComponent } from './post-list-item/post-list-item.component';
 import { AppareilService } from './services/appareil.service';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		AppareilComponent,
 		PostListComponent,
-		PostListItemComponent
+		PostListItemComponent,
+		AuthComponent
 	],
 	imports: [
 		BrowserModule,
