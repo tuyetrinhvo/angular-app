@@ -1,36 +1,14 @@
 <div class="col-xs-12 col-lg-12">
   <h2 class="mb-5 text-center">Mes appareils</h2>
-  <p class="mb-3">Mis à jour le {{ update() | date: 'dd/M/y, à H:mm:ss' }}</p>
+  <p class="mb-3">Le {{ lastUpdate | date: 'dd/M/y, à H:mm:ss' }}</p>
   <ul class="list-group">
-    <li *ngFor="let appareil of appareils; let i = index"
-        [ngClass]="{'list-group-item':true,
-                          'list-group-item-success': appareil.status === 'allumé',
-                          'list-group-item-danger': appareil.status === 'éteint'}">
-      <div class="row">
-        <h4 class="col-lg-11 col-sm-11"
-            [ngStyle]="{color: getColor(appareil.status)}">
-          Appareil : {{ appareil.name }} - Statut : {{ appareil.status }}
-        </h4>
-        <div class="col-lg-1 col-sm-1 mb-2">
-          <div style="width: 20px;height: 20px;background-color: red;"
-               *ngIf="appareil.status === 'éteint'"></div>
-        </div>
-      </div>
-      <input type="text"
-             class="form-control"
-             [(ngModel)]="appareil.name">
-      <button class="btn btn-success btn-sm mt-2 mr-2"
-              *ngIf="appareil.status === 'éteint'"
-              (click)="onSwitch(i)">Allumer</button>
-      <button class="btn btn-danger btn-sm mt-2"
-              *ngIf="appareil.status === 'allumé'"
-              (click)="onSwitch(i)">Eteindre</button>
-    </li>
+    <app-appareil-view *ngFor="let appareil of appareils; let i = index"
+                       [appareilName]="appareil.name"
+                       [appareilStatus]="appareil.status"
+                       [index]="i"></app-appareil-view>
   </ul>
   <button class="btn btn-success mt-5 mr-2"
-          [disabled]="!isAuth"
           (click)="onToutAllumer()">Tout allumer</button>
   <button class="btn btn-danger mt-5"
-          [disabled]="!isAuth"
           (click)="onToutEteindre()">Tout éteindre</button>
 </div>
