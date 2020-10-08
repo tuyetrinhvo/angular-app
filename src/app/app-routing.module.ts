@@ -4,7 +4,7 @@ import { AppareilComponent } from './appareil/appareil.component';
 import { PostListComponent } from './post-list/post-list.component';
 
 const routes: Routes = [
-  { path: 'appareil', component: AppareilComponent },
+  { path: 'appareils', component: AppareilComponent },
   { path: 'posts', component: PostListComponent }
 ];
 

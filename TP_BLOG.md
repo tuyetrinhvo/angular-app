@@ -27,3 +27,7 @@ created_at: Date
 - Penser aux directives structurelles comme  `*ngFor`  , et également aux directives par attribut comme  `ngClass`.    
 
 - Penser aux Pipes pour la transformation de données, notamment pour la date.     
+
+---
+
+# URL http://localhost:4200/posts

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
 	selector: 'app-appareil',
@@ -7,12 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppareilComponent implements OnInit {
 	isAuth = false;
-	lastUpdate = new Promise((resolve, reject) => {
-		const date = new Date();
-		setTimeout(() => {
-			resolve(date);
-		}, 2000);
-	});
+	lastUpdate = new Date();
+
 	appareils = [
 		{
 			name: 'Machine à laver',
@@ -41,7 +37,17 @@ export class AppareilComponent implements OnInit {
 	ngOnInit(): void { }
 
 	onAllumer() {
-		console.log('On allume tout !');
+		for (let appareil of this.appareils) {
+			appareil.status = 'allumé';
+		}
+		this.lastUpdate = new Date();
+	}
+
+	onEteindre() {
+		for (let appareil of this.appareils) {
+			appareil.status = 'éteint';
+		}
+		this.lastUpdate = new Date();
 	}
 
 	getColor(status: string) {
