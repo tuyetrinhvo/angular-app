@@ -14,10 +14,15 @@
   <input type="text"
          class="form-control"
          [(ngModel)]="appareilName">
-  <button class="btn btn-success btn-sm mt-2 mr-2"
-          *ngIf="appareilStatus === 'éteint'"
-          (click)="onSwitch()">Allumer</button>
-  <button class="btn btn-danger btn-sm mt-2"
-          *ngIf="appareilStatus === 'allumé'"
-          (click)="onSwitch()">Eteindre</button>
+
+  <div>
+    <button class="btn btn-success btn-sm mt-2 mr-2"
+            *ngIf="appareilStatus === 'éteint'"
+            (click)="onSwitch()">Allumer</button>
+    <button class="btn btn-danger btn-sm mt-2"
+            *ngIf="appareilStatus === 'allumé'"
+            (click)="onSwitch()">Eteindre</button>
+    <a [routerLink]="[id]" class="mt-2 p-2">Détail</a>
+  </div>
+
 </li>

@@ -11,6 +11,7 @@ import { AppareilService } from './services/appareil.service';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil/appareil-view/appareil-view.component';
 import { AuthService } from './services/auth.service';
+import { SingleAppareilComponent } from './appareil/single-appareil/single-appareil.component';
 
 @NgModule({
 	declarations: [
@@ -19,7 +20,8 @@ import { AuthService } from './services/auth.service';
 		PostListComponent,
 		PostListItemComponent,
 		AuthComponent,
-		AppareilViewComponent
+		AppareilViewComponent,
+		SingleAppareilComponent
 	],
 	imports: [
 		BrowserModule,
