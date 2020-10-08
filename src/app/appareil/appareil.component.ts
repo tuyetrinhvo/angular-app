@@ -36,18 +36,26 @@ export class AppareilComponent implements OnInit {
 
 	ngOnInit(): void { }
 
-	onAllumer() {
+	onToutAllumer() {
 		for (let appareil of this.appareils) {
 			appareil.status = 'allumé';
 		}
 		this.lastUpdate = new Date();
 	}
 
-	onEteindre() {
+	onToutEteindre() {
 		for (let appareil of this.appareils) {
 			appareil.status = 'éteint';
 		}
 		this.lastUpdate = new Date();
+	}
+
+	onAllumer(i: number) {
+		this.appareils[i].status = 'allumé';
+	}
+
+	onEteindre(i: number) {
+		this.appareils[i].status = 'éteint';
 	}
 
 	getColor(status: string) {
