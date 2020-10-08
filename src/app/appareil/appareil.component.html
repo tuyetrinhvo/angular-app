@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-xs-12 col-lg-12">
         <h2 class="mb-5">Mes appareils</h2>
-        <p class="mb-3">Mis à jour le {{ lastUpdate | date: 'dd/M/y, à H:mm:ss' }}</p>
+        <p class="mb-3">Mis à jour le {{ update() | date: 'dd/M/y, à H:mm:ss' }}</p>
         <ul class="list-group">
           <li *ngFor="let appareil of appareils; let i = index"
               [ngClass]="{'list-group-item':true,
@@ -34,9 +34,11 @@
                    class="form-control"
                    [(ngModel)]="appareil.name">
             <button class="btn btn-success btn-sm mt-2 mr-2"
-                    (click)="onAllumer(i)">Allumer</button>
+                    *ngIf="appareil.status === 'éteint'"
+                    (click)="onSwitch(i)">Allumer</button>
             <button class="btn btn-danger btn-sm mt-2"
-                    (click)="onEteindre(i)">Eteindre</button>
+                    *ngIf="appareil.status === 'allumé'"
+                    (click)="onSwitch(i)">Eteindre</button>
           </li>
         </ul>
         <button class="btn btn-success mt-5 mr-2"

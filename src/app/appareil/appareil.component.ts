@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AppareilService } from '../services/appareil.service';
 
 @Component({
 	selector: 'app-appareil',
@@ -7,55 +8,39 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AppareilComponent implements OnInit {
 	isAuth = false;
-	lastUpdate = new Date();
 
-	appareils = [
-		{
-			name: 'Machine à laver',
-			status: 'éteint'
-		},
-		{
-			name: 'Frigo',
-			status: 'allumé'
-		},
-		{
-			name: 'Lave vaisselles',
-			status: 'éteint'
-		},
-		{
-			name: 'Télé',
-			status: 'allumé'
-		}
-	];
+	update() {
+		return new Date();
+	}
 
-	constructor() {
+	appareils: any[];
+
+	constructor(private appareilSerivce: AppareilService) {
 		setTimeout(() => {
 			this.isAuth = true;
 		}, 2000);
+		this.appareils = this.appareilSerivce.appareils;
 	}
 
 	ngOnInit(): void { }
 
 	onToutAllumer() {
-		for (let appareil of this.appareils) {
-			appareil.status = 'allumé';
-		}
-		this.lastUpdate = new Date();
+		this.appareilSerivce.switchOnAll();
+		this.update();
 	}
 
 	onToutEteindre() {
-		for (let appareil of this.appareils) {
-			appareil.status = 'éteint';
+		this.appareilSerivce.switchOffAll();
+		this.update();
+	}
+
+	onSwitch(i: number) {
+		if (this.appareils[i].status === 'allumé') {
+			this.appareilSerivce.switchOffOne(i)
+		} else {
+			this.appareilSerivce.switchOnOne(i)
 		}
-		this.lastUpdate = new Date();
-	}
-
-	onAllumer(i: number) {
-		this.appareils[i].status = 'allumé';
-	}
-
-	onEteindre(i: number) {
-		this.appareils[i].status = 'éteint';
+		this.update();
 	}
 
 	getColor(status: string) {
