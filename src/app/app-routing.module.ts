@@ -5,11 +5,12 @@ import { SingleAppareilComponent } from './appareil/single-appareil/single-appar
 import { AuthComponent } from './auth/auth.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { PostListComponent } from './post-list/post-list.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { path: 'appareils', component: AppareilComponent },
-  { path: 'appareils/:id', component: SingleAppareilComponent },
-  { path: 'posts', component: PostListComponent },
+  { path: 'appareils', canActivate: [AuthGuardService], component: AppareilComponent },
+  { path: 'appareils/:id', canActivate: [AuthGuardService], component: SingleAppareilComponent },
+  { path: 'posts', canActivate: [AuthGuardService], component: PostListComponent },
   { path: 'auth', component: AuthComponent },
   { path: '', component: PostListComponent },
   { path: 'erreur/404', component: ErrorPageComponent },

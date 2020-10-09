@@ -13,6 +13,7 @@ import { AppareilViewComponent } from './appareil/appareil-view/appareil-view.co
 import { AuthService } from './services/auth.service';
 import { SingleAppareilComponent } from './appareil/single-appareil/single-appareil.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
 	declarations: [
@@ -32,7 +33,8 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 	],
 	providers: [
 		AppareilService,
-		AuthService
+		AuthService,
+		AuthGuardService
 	],
 	bootstrap: [
 		AppComponent

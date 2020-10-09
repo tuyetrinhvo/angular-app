@@ -20,15 +20,13 @@ export class AuthComponent implements OnInit {
   onSignIn() {
     this.authService.signIn().then(
       () => {
-        console.log('Vous êtes connecté');
         this.isAuth = this.authService.isAuth;
         this.router.navigate(['appareils']);
       }
-    )
+    );
   }
 
   onSignOut() {
-    console.log('Vous êtes déconnecté');
     this.authService.signOut();
     this.isAuth = this.authService.isAuth;
   }
