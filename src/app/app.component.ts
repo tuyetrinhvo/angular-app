@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/Rx';
 
 @Component({
 	selector: 'app-root',
@@ -10,18 +8,9 @@ import 'rxjs/Rx';
 export class AppComponent implements OnInit {
 	title = 'angular-app';
 
-	seconds: number;
-
 	constructor() { }
 
-	ngOnInit() {
-		const counter = Observable.interval(1000);
-		counter.subscribe(
-			() => { },
-			() => { },
-			() => { }
-		);
-	}
+	ngOnInit() { }
 
 
 }
