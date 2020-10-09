@@ -8,6 +8,8 @@ import { NgForm } from '@angular/forms';
 })
 export class NewAppareilComponent implements OnInit {
 
+  defaultStatus = 'éteint';
+
   constructor() { }
 
   ngOnInit(): void {
