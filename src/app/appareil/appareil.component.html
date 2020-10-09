@@ -1,6 +1,8 @@
 <div class="col-xs-12 col-lg-12">
   <h2 class="mb-5 text-center">Mes appareils</h2>
-  <p class="mb-3">Le {{ lastUpdate | date: 'dd/M/y' }}. Temps passé sur cette page : {{ seconds }} secondes.</p>
+  <p class="mb-3 text-center">
+    Nous sommes le {{ lastUpdate | date: 'dd/M/y' }}. Temps passé sur cette page : {{ seconds }} secondes.
+  </p>
   <ul class="list-group">
     <app-appareil-view *ngFor="let appareil of appareils; let i = index"
                        [appareilName]="appareil.name"
@@ -8,8 +10,14 @@
                        [index]="i"
                        [id]="appareil.id"></app-appareil-view>
   </ul>
-  <button class="btn btn-success mt-5 mr-2"
-          (click)="onToutAllumer()">Tout allumer</button>
-  <button class="btn btn-danger mt-5"
-          (click)="onToutEteindre()">Tout éteindre</button>
+  <div class="text-center">
+    <a class="btn btn-primary mt-5 mr-2"
+       type="button"
+       routerLink="/appareil/add">Ajouter un appareil</a>
+    <button class="btn btn-success mt-5 mr-2"
+            (click)="onToutAllumer()">Tout allumer</button>
+    <button class="btn btn-danger mt-5"
+            (click)="onToutEteindre()">Tout éteindre</button>
+  </div>
+
 </div>

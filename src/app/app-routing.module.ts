@@ -9,7 +9,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import { AuthGuardService } from './services/auth-guard.service';
 
 const routes: Routes = [
-  { path: 'appareils', canActivate: [AuthGuardService], component: AppareilComponent },
+  { path: 'appareils', component: AppareilComponent },
   { path: 'appareil/add', component: NewAppareilComponent },
   { path: 'appareils/:id', canActivate: [AuthGuardService], component: SingleAppareilComponent },
   { path: 'posts', canActivate: [AuthGuardService], component: PostListComponent },
