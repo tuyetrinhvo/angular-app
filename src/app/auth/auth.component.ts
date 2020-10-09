@@ -21,7 +21,7 @@ export class AuthComponent implements OnInit {
     this.authService.signIn().then(
       () => {
         this.isAuth = this.authService.isAuth;
-        this.router.navigate(['appareils']);
+        this.router.navigate(['/appareils']);
       }
     );
   }

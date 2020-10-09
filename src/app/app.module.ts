@@ -14,6 +14,7 @@ import { AuthService } from './services/auth.service';
 import { SingleAppareilComponent } from './appareil/single-appareil/single-appareil.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { NewAppareilComponent } from './appareil/new-appareil/new-appareil.component';
 
 @NgModule({
 	declarations: [
@@ -24,7 +25,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 		AuthComponent,
 		AppareilViewComponent,
 		SingleAppareilComponent,
-		ErrorPageComponent
+		ErrorPageComponent,
+		NewAppareilComponent
 	],
 	imports: [
 		BrowserModule,
