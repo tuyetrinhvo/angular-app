@@ -17,10 +17,18 @@ export class AppareilComponent implements OnInit, OnDestroy {
 	seconds: number;
 	counterSubscription: Subscription;
 
+	appareilsSubscription: Subscription;
+
 	constructor(private appareilSerivce: AppareilService) { }
 
 	ngOnInit(): void {
-		this.appareils = this.appareilSerivce.appareils;
+		this.appareilsSubscription = this.appareilSerivce.appareilsSubject.subscribe(
+			(data: any[]) => {
+				this.appareils = data;
+			}
+		);
+		this.appareilSerivce.emitAppareilSubject();
+
 		const counter = Observable.interval(1000);
 		this.counterSubscription = counter.subscribe(
 			(data: number) => {
