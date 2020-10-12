@@ -20,6 +20,13 @@
         <option value="femme">Femme</option>
       </select>
     </div>
+    <div formArrayName="hobbies">
+      <h3>Vos intérêtes</h3>
+      <div class="form-group" *ngFor="let hobbyControl of getHobbies().controls; let i=index">
+        <input type="text" class="form-control" [formControlName]="i">
+      </div>
+      <button type="button" class="btn btn-success btn-sm" (click)="onAddHobby()">Ajouter un intérêt</button>
+    </div>
     <div class="text-center">
       <button class="btn btn-primary mt-5"
               type="submit"
