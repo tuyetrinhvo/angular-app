@@ -1,4 +1,4 @@
-import { Subject } from 'rxjs/Subject';
+import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 @Injectable()
@@ -25,6 +25,16 @@ export class AppareilService {
         {
             id: 4,
             name: 'Télé',
+            status: 'allumé'
+        },
+        {
+            id: 5,
+            name: 'XboxOne',
+            status: 'allumé'
+        },
+        {
+            id: 6,
+            name: 'Macbook',
             status: 'allumé'
         }
     ];
