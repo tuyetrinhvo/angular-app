@@ -50,4 +50,8 @@ export class AppareilComponent implements OnInit, OnDestroy {
 		this.appareilsSubscription.unsubscribe();
 	}
 
+	onSave() {
+		this.appareilSerivce.saveAppareilsTOserver();
+	}
+
 }
