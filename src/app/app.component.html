@@ -34,15 +34,22 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" routerLink="/appareils">Liste</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/add-nouvel-appareil">New Appareil</a>
+          <a class="dropdown-item" routerLink="/add-appareil">Nouvel Appareil</a>
         </div>
-
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/posts">Posts</a>
       </li>
-      <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" routerLink="/users">Utilisateurs</a>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkUser" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Utilisateurs
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUser">
+          <a class="dropdown-item" routerLink="/users">Liste</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/add-user">Nouvel Utilisateurs</a>
+        </div>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a class="nav-link" routerLink="/auth">Authentification</a>

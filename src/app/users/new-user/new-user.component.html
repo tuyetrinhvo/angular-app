@@ -1,0 +1,29 @@
+<div class="col-xs-12 col-lg-12">
+  <h2 class="mb-5 text-center">Nouvel utilisateur</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+    <div class="form-group">
+      <label for="firstName">Prénom</label>
+      <input type="text" id="firstName" class="form-control" formControlName="fN">
+    </div>
+    <div class="form-group">
+      <label for="lastName">Nom</label>
+      <input type="text" id="lastName" class="form-control" formControlName="lN">
+    </div>
+    <div class="form-group">
+      <label for="email">Adresse d'email</label>
+      <input type="text" id="email" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="gender">Genre</label>
+      <select id="gender" class="form-control" formControlName="gender">
+        <option value="homme">Homme</option>
+        <option value="femme">Femme</option>
+      </select>
+    </div>
+    <div class="text-center">
+      <button class="btn btn-primary mt-5"
+              type="submit"
+              [disabled]="">Enregistrer</button>
+    </div>
+  </form>
+</div>

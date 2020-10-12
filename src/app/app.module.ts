@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppareilComponent } from './appareil/appareil.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppareilService } from './services/appareil.service';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil/appareil-view/appareil-view.component';
@@ -17,6 +17,7 @@ import { PostsComponent } from './posts/posts.component';
 import { PostItemComponent } from './posts/post-item/post-item.component';
 import { UsersComponent } from './users/users.component';
 import { UserService } from './services/user.service';
+import { NewUserComponent } from './users/new-user/new-user.component';
 
 @NgModule({
 	declarations: [
@@ -29,12 +30,14 @@ import { UserService } from './services/user.service';
 		NewAppareilComponent,
 		PostsComponent,
 		PostItemComponent,
-		UsersComponent
+		UsersComponent,
+		NewUserComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		FormsModule
+		FormsModule,
+		ReactiveFormsModule
 	],
 	providers: [
 		AppareilService,
