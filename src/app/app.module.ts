@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { FormsModule } from '@angular/forms';
-import { PostListComponent } from './post-list/post-list.component';
-import { PostListItemComponent } from './post-list-item/post-list-item.component';
 import { AppareilService } from './services/appareil.service';
 import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareil/appareil-view/appareil-view.component';
@@ -15,18 +13,23 @@ import { SingleAppareilComponent } from './appareil/single-appareil/single-appar
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NewAppareilComponent } from './appareil/new-appareil/new-appareil.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostItemComponent } from './posts/post-item/post-item.component';
+import { UsersComponent } from './users/users.component';
+import { UserService } from './services/user.service';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		AppareilComponent,
-		PostListComponent,
-		PostListItemComponent,
 		AuthComponent,
 		AppareilViewComponent,
 		SingleAppareilComponent,
 		ErrorPageComponent,
-		NewAppareilComponent
+		NewAppareilComponent,
+		PostsComponent,
+		PostItemComponent,
+		UsersComponent
 	],
 	imports: [
 		BrowserModule,
@@ -36,7 +39,8 @@ import { NewAppareilComponent } from './appareil/new-appareil/new-appareil.compo
 	providers: [
 		AppareilService,
 		AuthService,
-		AuthGuardService
+		AuthGuardService,
+		UserService
 	],
 	bootstrap: [
 		AppComponent

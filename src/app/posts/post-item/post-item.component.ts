@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-post-list-item',
-  templateUrl: './post-list-item.component.html',
-  styleUrls: ['./post-list-item.component.scss']
+  selector: 'app-post-item',
+  templateUrl: './post-item.component.html',
+  styleUrls: ['./post-item.component.scss']
 })
-export class PostListItemComponent implements OnInit {
+export class PostItemComponent implements OnInit {
+
 
   @Input() postTitle: string;
   @Input() postContent: string;
@@ -33,4 +34,5 @@ export class PostListItemComponent implements OnInit {
       return 'red';
     }
   }
+
 }

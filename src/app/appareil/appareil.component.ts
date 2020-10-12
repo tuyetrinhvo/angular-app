@@ -35,7 +35,6 @@ export class AppareilComponent implements OnInit, OnDestroy {
 				this.seconds = data;
 			}
 		);
-
 	}
 
 	onToutAllumer() {
@@ -48,6 +47,7 @@ export class AppareilComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.counterSubscription.unsubscribe();
+		this.appareilsSubscription.unsubscribe();
 	}
 
 }
