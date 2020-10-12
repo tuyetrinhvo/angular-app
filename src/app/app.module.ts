@@ -19,6 +19,14 @@ import { PostItemComponent } from './posts/post-item/post-item.component';
 import { UsersComponent } from './users/users.component';
 import { UserService } from './services/user.service';
 import { NewUserComponent } from './users/new-user/new-user.component';
+import { SignInComponent } from './auth/sign-in/sign-in.component';
+import { SignUpComponent } from './auth/sign-up/sign-up.component';
+import { BooksService } from './services/books.service';
+import { BooksComponent } from './books/books.component';
+import { SingleBookComponent } from './books/single-book/single-book.component';
+import { BookFormComponent } from './books/book-form/book-form.component';
+import { HeaderComponent } from './header/header.component';
+import { NewPostComponent } from './posts/new-post/new-post.component';
 
 @NgModule({
 	declarations: [
@@ -32,7 +40,14 @@ import { NewUserComponent } from './users/new-user/new-user.component';
 		PostsComponent,
 		PostItemComponent,
 		UsersComponent,
-		NewUserComponent
+		NewUserComponent,
+		SignInComponent,
+		SignUpComponent,
+		BooksComponent,
+		SingleBookComponent,
+		BookFormComponent,
+		HeaderComponent,
+		NewPostComponent
 	],
 	imports: [
 		BrowserModule,
@@ -45,7 +60,8 @@ import { NewUserComponent } from './users/new-user/new-user.component';
 		AppareilService,
 		AuthService,
 		AuthGuardService,
-		UserService
+		UserService,
+		BooksService
 	],
 	bootstrap: [
 		AppComponent

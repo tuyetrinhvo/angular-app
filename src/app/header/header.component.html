@@ -1,0 +1,77 @@
+<style>
+  nav {
+    background-color: #233140;
+    font-weight: 600;
+  }
+
+</style>
+<nav class="navbar navbar-expand-lg navbar-dark mb-5">
+  <a class="navbar-brand" href="https://ttvo.fr" target="_blank">
+    <img width="40" alt="Logo Trinh" src="/assets/img/logo192.png" />
+  </a>
+  <a class="navbar-brand" routerLink="auth">ANGULAR APPLICATION</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDropdown"
+          aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDropdown">
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Appareils
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" routerLink="/appareils">Liste</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/new-appareil">Nouvel Appareil</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkBooks" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Livres
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkBooks">
+          <a class="dropdown-item" routerLink="/books">Liste</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/new-book">Nouveau Livre</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkPosts" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Posts
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkPosts">
+          <a class="dropdown-item" routerLink="/posts">Liste</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/new-post">Nouveau Post</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkUser" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Utilisateurs
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUser">
+          <a class="dropdown-item" routerLink="/users">Liste</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/new-user">Nouvel Utilisateur</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown" routerLinkActive="active">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkUser" data-toggle="dropdown"
+           aria-haspopup="true" aria-expanded="false">
+          Authentification
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUser">
+          <a class="dropdown-item" routerLink="/auth/sign-up">S'inscrire</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/auth/sign-in">Se connecter</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
