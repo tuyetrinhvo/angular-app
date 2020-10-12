@@ -85,10 +85,24 @@ export class AppareilService {
 
     saveAppareilsTOserver() {
         this.httpClient
-            .post('https://angular-app-3809a.firebaseio.com/appareils.json', this.appareils)
+            .put('https://angular-app-3809a.firebaseio.com/appareils.json', this.appareils)
             .subscribe(
                 () => {
                     console.log('Enregistré !');
+                },
+                (error) => {
+                    console.log('Erreur : ' + error);
+                }
+            );
+    }
+
+    getAppareilsFromServer() {
+        this.httpClient
+            .get<any[]>('https://angular-app-3809a.firebaseio.com/appareils.json')
+            .subscribe(
+                (response) => {
+                    this.appareils = response;
+                    this.emitAppareilSubject();
                 },
                 (error) => {
                     console.log('Erreur : ' + error);

@@ -54,4 +54,8 @@ export class AppareilComponent implements OnInit, OnDestroy {
 		this.appareilSerivce.saveAppareilsTOserver();
 	}
 
+	onFetch() {
+		this.appareilSerivce.getAppareilsFromServer();
+	}
+
 }
