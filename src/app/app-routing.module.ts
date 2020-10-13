@@ -8,6 +8,7 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { BookFormComponent } from './books/book-form/book-form.component';
 import { BooksComponent } from './books/books.component';
+import { SingleBookComponent } from './books/single-book/single-book.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { NewPostComponent } from './posts/new-post/new-post.component';
 import { PostsComponent } from './posts/posts.component';
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'users', component: UsersComponent },
   { path: 'new-user', component: NewUserComponent },
   { path: 'books', component: BooksComponent },
-  { path: 'new-book', component: BookFormComponent },
+  { path: 'books/new-book', component: BookFormComponent },
+  { path: 'books/view/:id', component: SingleBookComponent },
   { path: 'auth', canActivate: [AuthGuardService], component: AuthComponent },
   { path: 'auth/sign-in', component: SignInComponent },
   { path: 'auth/sign-up', component: SignUpComponent },

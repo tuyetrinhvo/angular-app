@@ -95,7 +95,7 @@ export class AppareilService {
 
     saveAppareilsTOserver() {
         this.httpClient
-            .put('https://angular-app-3809a.firebaseio.com/appareils.json', this.appareils)
+            .put('https://applications-angular.firebaseio.com/appareils.json', this.appareils)
             .subscribe(
                 () => {
                     console.log('Enregistré !');
@@ -108,7 +108,7 @@ export class AppareilService {
 
     getAppareilsFromServer() {
         this.httpClient
-            .get<any[]>('https://angular-app-3809a.firebaseio.com/appareils.json')
+            .get<any[]>('https://applications-angular.firebaseio.com/appareils.json')
             .subscribe(
                 (response) => {
                     this.appareils = response;
