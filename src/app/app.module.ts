@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppareilListComponent } from './appareils/appareil-list/appareil-list.component';
 import { AppareilService } from './services/appareil.service';
-import { AuthComponent } from './auth/auth.component';
 import { AppareilViewComponent } from './appareils/appareil-view/appareil-view.component';
 import { AuthService } from './services/auth.service';
 import { SingleAppareilComponent } from './appareils/single-appareil/single-appareil.component';
@@ -27,12 +26,12 @@ import { BookFormComponent } from './books/book-form/book-form.component';
 import { HeaderComponent } from './header/header.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
+import { ApplicationListComponent } from './application-list/application-list.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
 		AppareilListComponent,
-		AuthComponent,
 		AppareilViewComponent,
 		SingleAppareilComponent,
 		ErrorPageComponent,
@@ -48,6 +47,7 @@ import { PostFormComponent } from './posts/post-form/post-form.component';
 		SingleBookComponent,
 		BookFormComponent,
 		HeaderComponent,
+		ApplicationListComponent,
 	],
 	imports: [
 		BrowserModule,

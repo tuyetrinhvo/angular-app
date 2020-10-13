@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppareilListComponent } from './appareils/appareil-list/appareil-list.component';
 import { NewAppareilComponent } from './appareils/new-appareil/new-appareil.component';
 import { SingleAppareilComponent } from './appareils/single-appareil/single-appareil.component';
-import { AuthComponent } from './auth/auth.component';
+import { ApplicationListComponent } from './application-list/application-list.component';
 import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { BookFormComponent } from './books/book-form/book-form.component';
@@ -19,7 +19,7 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 
 const routes: Routes = [
   { path: 'appareils', component: AppareilListComponent },
-  { path: 'appareils/new-appareil', component: NewAppareilComponent },
+  { path: 'appareils/new-appareil', canActivate: [AuthGuardService], component: NewAppareilComponent },
   { path: 'appareils/view/:id', component: SingleAppareilComponent },
   { path: 'posts', component: PostsListComponent },
   { path: 'posts/new-post', component: PostFormComponent },
@@ -29,10 +29,9 @@ const routes: Routes = [
   { path: 'books', component: BooksListComponent },
   { path: 'books/new-book', component: BookFormComponent },
   { path: 'books/view/:id', component: SingleBookComponent },
-  { path: 'auth', canActivate: [AuthGuardService], component: AuthComponent },
   { path: 'auth/sign-in', component: SignInComponent },
   { path: 'auth/sign-up', component: SignUpComponent },
-  { path: '', component: UsersListComponent },
+  { path: '', component: ApplicationListComponent },
   { path: 'erreur/404', component: ErrorPageComponent },
   { path: '**', redirectTo: 'erreur/404' }
 ];
