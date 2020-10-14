@@ -1,1 +1,8 @@
-<p>single-book works!</p>
+<div class="col-xs-12 col-lg-12">
+  <h1 class="mb-5 text-center">{{book.title}}</h1>
+  <h3 class="mb-5 text-center">{{book.author}}</h3>
+  <div class="text-center">
+    <button class="btn btn-secondary mt-5"
+            (click)="onGoBackToBooksList()">Retourner à la liste des livres</button>
+  </div>
+</div>

@@ -52,7 +52,7 @@ export class AppareilListComponent implements OnInit, OnDestroy {
   }
 
   onSave() {
-    this.appareilSerivce.saveAppareilsTOserver();
+    this.appareilSerivce.saveAppareilsToServer();
   }
 
   onFetch() {

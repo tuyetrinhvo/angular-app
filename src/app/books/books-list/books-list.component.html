@@ -1,1 +1,19 @@
-<p>books-list works!</p>
+<div class="col-xs-12 col-lg-12">
+  <h2 class="mb-5 text-center">Mes livres</h2>
+  <div class="list-group">
+    <button class="list-group-item"
+            *ngFor="let book of books; let i = index"
+            (click)="onViewBook(i)">
+      <h3 class="list-group-item-heading text-justify">{{ book.title }}
+        <button class="btn btn-light pull-right ml-5" (click)="onDeleteBook(book)">
+          <i class="fa fa-minus"></i>
+        </button>
+      </h3>
+      <p class="list-group-item-text text-justify">{{ book.author }}</p>
+    </button>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary mt-5"
+            (click)="onNewBook()">Ajouter un nouveau livre</button>
+  </div>
+</div>

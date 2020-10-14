@@ -93,7 +93,7 @@ export class AppareilService {
         this.emitAppareilSubject();
     }
 
-    saveAppareilsTOserver() {
+    saveAppareilsToServer() {
         this.httpClient
             .put('https://applications-angular.firebaseio.com/appareils.json', this.appareils)
             .subscribe(
