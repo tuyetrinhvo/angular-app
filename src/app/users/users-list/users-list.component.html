@@ -1,12 +1,12 @@
 <div class="col-xs-12 col-lg-12">
-  <h2 class="mb-5 text-center">Liste des utilisateurs</h2>
+  <h2 class="mb-5 text-center">Liste des personnages</h2>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let user of users">
       <h3>{{ user.firstName }} {{ user.lastName }}</h3>
       <p class="mt-3">Son adresse d'email: {{ user.email }}</p>
       <p class="mt-3">Genre : {{ user.gender }}</p>
       <p *ngIf="user.hobbies && user.hobbies.length > 0">
-        Ses intérêts :
+        Ses loisirs préférés :
         <span *ngFor="let hobby of user.hobbies"> {{ hobby }},</span>
       </p>
     </li>
@@ -14,6 +14,6 @@
   <div class="text-center">
     <a class="btn btn-primary mt-5 mr-2"
        type="button"
-       routerLink="/users/new-user">Ajouter un utilisateur</a>
+       routerLink="/users/new-user">Ajouter un personnage</a>
   </div>
 </div>

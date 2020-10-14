@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
-import { AuthService } from './auth.service';
 import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthGuardService implements CanActivate {
 
-  constructor(
-    private router: Router) { }
+  constructor(private router: Router) { }
 
   canActivate(): Observable<boolean> | Promise<boolean> | boolean {
     return new Promise(

@@ -4,12 +4,18 @@
     font-weight: 600;
   }
 
+  @media (max-width: 375px) {
+    a#angular-app {
+      display: none;
+    }
+  }
+
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark mb-5">
   <a class="navbar-brand" href="https://ttvo.fr" target="_blank">
     <img width="40" alt="Logo Trinh" src="/assets/img/logo192.png" />
   </a>
-  <a class="navbar-brand" routerLink="/app">ANGULAR APPLICATIONS</a>
+  <a class="navbar-brand" routerLink="/app" id="angular-app">ANGULAR APPLICATIONS</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDropdown"
           aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -17,6 +23,9 @@
 
   <div class="collapse navbar-collapse" id="navbarTogglerDropdown">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/app">Accueil</a>
+      </li>
       <li class="nav-item dropdown" routerLinkActive="active">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
@@ -53,16 +62,16 @@
       <li class="nav-item dropdown" routerLinkActive="active">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkUser" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
-          Utilisateurs
+          Personnages
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUser">
           <a class="dropdown-item" routerLink="/users">Liste</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" routerLink="/users/new-user">Nouvel Utilisateur</a>
+          <a class="dropdown-item" routerLink="/users/new-user">Nouveau personnage</a>
         </div>
       </li>
       <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
-        <a class="nav-link" (click)="onSignOut()">Déconnexion</a>
+        <a class="nav-link" (click)="onSignOut()" style="cursor: pointer;">Déconnexion</a>
       </li>
       <li class="nav-item dropdown" routerLinkActive="active" *ngIf="!isAuth">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkUser" data-toggle="dropdown"

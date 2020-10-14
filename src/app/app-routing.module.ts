@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'auth/sign-in', component: SignInComponent },
   { path: 'auth/sign-up', component: SignUpComponent },
   { path: 'app', component: ApplicationListComponent },
-  { path: '', component: ApplicationListComponent },
+  { path: '', redirectTo: 'app', pathMatch: 'full' },
   { path: 'erreur/404', component: ErrorPageComponent },
   { path: '**', redirectTo: 'erreur/404' }
 ];
