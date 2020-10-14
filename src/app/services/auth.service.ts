@@ -3,7 +3,6 @@ import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
-    isAuth = false;
 
     constructor() { }
 

@@ -35,7 +35,7 @@ export class SignUpComponent implements OnInit {
     const password = this.signUpForm.get('password').value;
     this.authService.createNewUser(email, password).then(
       () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/app']);
       },
       (error) => {
         this.errorMessage = error;

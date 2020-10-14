@@ -1,29 +1,40 @@
 <style>
+  h2,
   a {
     color: grey
+  }
+
+  a:hover,
+  h2:hover {
+    text-decoration: none;
+    text-shadow: 1px 1px #000000;
   }
 
 </style>
 <div class="col-xs-12 col-lg-12">
   <h1 class="mb-5 text-center">Liste des applications</h1>
   <ul class="list-group">
-    <li class="list-group-item list-group-item-secondary">
-      <h2 class="text-center"><a routerLink="/auth/sign-up">Inscription</a></h2>
-    </li>
-    <li class="list-group-item list-group-item-info">
-      <h2 class="text-center"><a routerLink="/auth/sign-in">Connexion</a></h2>
-    </li>
+
     <li class="list-group-item list-group-item-primary">
-      <h2 class="text-center"><a routerLink="/appareils">Liste des Appareils</a></h2>
+      <h2 class="text-center"><a routerLink="/appareils">Appareils</a></h2>
     </li>
     <li class="list-group-item list-group-item-success">
-      <h2 class="text-center"><a routerLink="/posts">Liste des Posts</a></h2>
+      <h2 class="text-center"><a routerLink="/posts">Posts</a></h2>
     </li>
     <li class="list-group-item list-group-item-warning">
-      <h2 class="text-center"><a routerLink="/books">Liste des Livres</a></h2>
+      <h2 class="text-center"><a routerLink="/books">Livres</a></h2>
     </li>
-    <li class="list-group-item list-group-item-dark">
-      <h2 class="text-center"><a routerLink="/users">Liste des Utilisateurs</a></h2>
+    <li class="list-group-item list-group-item-info">
+      <h2 class="text-center"><a routerLink="/users">Utilisateurs</a></h2>
+    </li>
+    <li class="list-group-item list-group-item-danger" *ngIf="!isAuth">
+      <h2 class="text-center"><a routerLink="/auth/sign-in">Connexion</a></h2>
+    </li>
+    <li class="list-group-item list-group-item-secondary" *ngIf="!isAuth">
+      <h2 class="text-center"><a routerLink="/auth/sign-up">Inscription</a></h2>
+    </li>
+    <li class="list-group-item list-group-item-danger" *ngIf="isAuth">
+      <h2 class="text-center" (click)="onSignOut()">Déconnexion</h2>
     </li>
   </ul>
 </div>

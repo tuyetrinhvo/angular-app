@@ -9,7 +9,7 @@
   <a class="navbar-brand" href="https://ttvo.fr" target="_blank">
     <img width="40" alt="Logo Trinh" src="/assets/img/logo192.png" />
   </a>
-  <a class="navbar-brand" routerLink="/">ANGULAR APPLICATIONS</a>
+  <a class="navbar-brand" routerLink="/app">ANGULAR APPLICATIONS</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDropdown"
           aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -61,7 +61,10 @@
           <a class="dropdown-item" routerLink="/users/new-user">Nouvel Utilisateur</a>
         </div>
       </li>
-      <li class="nav-item dropdown" routerLinkActive="active">
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAuth">
+        <a class="nav-link" (click)="onSignOut()">Déconnexion</a>
+      </li>
+      <li class="nav-item dropdown" routerLinkActive="active" *ngIf="!isAuth">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLinkUser" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
           Authentification
@@ -72,6 +75,7 @@
           <a class="dropdown-item" routerLink="/auth/sign-in">Connexion</a>
         </div>
       </li>
+
     </ul>
   </div>
 </nav>

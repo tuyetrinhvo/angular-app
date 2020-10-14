@@ -35,7 +35,7 @@ export class SignInComponent implements OnInit {
     const password = this.signInForm.get('password').value;
     this.authService.signInUser(email, password).then(
       () => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/app']);
       },
       (error) => {
         this.errorMessage = error;
