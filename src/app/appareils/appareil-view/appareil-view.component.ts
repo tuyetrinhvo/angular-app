@@ -33,4 +33,8 @@ export class AppareilViewComponent implements OnInit {
     }
   }
 
+  onDelete() {
+    this.appareilSerivce.removeAppareil(this.index);
+  }
+
 }

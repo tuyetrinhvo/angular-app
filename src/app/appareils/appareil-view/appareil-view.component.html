@@ -19,6 +19,8 @@
             *ngIf="appareilStatus === 'allumé'"
             (click)="onSwitch()">Eteindre</button>
     <a [routerLink]="[id]" class="mt-2 btn btn-sm btn-outline-info" type="button">Détail</a>
+    <button class="btn btn-outline-danger btn-sm mt-2 ml-2"
+            (click)="onDelete()">Supprimer</button>
   </div>
 
 </li>

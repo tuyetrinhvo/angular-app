@@ -51,13 +51,13 @@ export class AppareilListComponent implements OnInit, OnDestroy {
     this.appareilsSubscription.unsubscribe();
   }
 
-  onSave() {
-    this.appareilSerivce.saveAppareilsToServer();
-  }
-
-  onFetch() {
-    this.appareilSerivce.getAppareilsFromServer();
-  }
+  /*   onSave() {
+      this.appareilSerivce.saveAppareilsToServer();
+    }
+  
+    onFetch() {
+      this.appareilSerivce.getAppareilsFromServer();
+    } */
 
 }
 
