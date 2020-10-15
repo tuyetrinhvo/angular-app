@@ -1,5 +1,5 @@
 export class Book {
-  photo: string;
+  photoUrl: string;
 
   constructor(
     public title: string,

@@ -14,14 +14,14 @@ export class SingleBookComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private bookService: BooksService,
+    private booksService: BooksService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
     this.book = new Book('', '');
     const id = this.route.snapshot.params['id'];
-    this.bookService.getSingleBook(+id).then(
+    this.booksService.getSingleBook(+id).then(
       (book: Book) => {
         this.book = book;
       }
