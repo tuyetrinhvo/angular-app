@@ -30,6 +30,7 @@ export class AppareilListComponent implements OnInit, OnDestroy {
         this.appareils = data;
       }
     );
+    this.appareilSerivce.getAppareils();
     this.appareilSerivce.emitAppareilSubject();
 
     const counter = Observable.interval(1000);

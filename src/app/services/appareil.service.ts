@@ -10,9 +10,7 @@ export class AppareilService {
 
     private appareils = [];
 
-    constructor(private httpClient: HttpClient) {
-        this.getAppareils();
-    }
+    constructor(private httpClient: HttpClient) { }
 
     emitAppareilSubject() {
         this.appareilsSubject.next(this.appareils);

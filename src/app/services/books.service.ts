@@ -10,7 +10,7 @@ export class BooksService {
   bookSubject = new Subject<Book[]>();
 
   constructor() {
-    this.getBooks();
+
   }
 
   // prendre le contenu du books et remettra à travers du bookSubject

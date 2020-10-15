@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Book } from 'src/app/models/Book.model';
 import { BooksService } from 'src/app/services/books.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-books-list',
@@ -13,6 +14,7 @@ export class BooksListComponent implements OnInit, OnDestroy {
 
   books: Book[]; // array local
   bookSubscription: Subscription;
+  isAuth: boolean;
 
   constructor(
     private booksService: BooksService,
@@ -25,7 +27,19 @@ export class BooksListComponent implements OnInit, OnDestroy {
         this.books = books;
       }
     );
+    this.booksService.getBooks();
     this.booksService.emitBooks();
+
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if (user) {
+          this.isAuth = true;
+        } else {
+          this.isAuth = false;
+        }
+      }
+    );
+
   }
 
   onNewBook() {
