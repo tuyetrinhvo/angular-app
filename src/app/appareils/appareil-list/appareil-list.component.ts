@@ -3,7 +3,7 @@ import { AppareilService } from 'src/app/services/appareil.service';
 import { Observable } from 'rxjs';
 import 'rxjs/Rx';
 import { Subscription } from 'rxjs/Rx';
-
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-appareil-list',
@@ -19,6 +19,8 @@ export class AppareilListComponent implements OnInit, OnDestroy {
   counterSubscription: Subscription;
 
   appareilsSubscription: Subscription;
+
+  isAuth: boolean;
 
   constructor(private appareilSerivce: AppareilService) { }
 
@@ -36,6 +38,17 @@ export class AppareilListComponent implements OnInit, OnDestroy {
         this.seconds = data;
       }
     );
+
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if (user) {
+          this.isAuth = true;
+        } else {
+          this.isAuth = false;
+        }
+      }
+    );
+
   }
 
   onToutAllumer() {

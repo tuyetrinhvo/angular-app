@@ -3,7 +3,7 @@
   <div class="mb-5 text-center">
     <a class="btn btn-outline-secondary"
        type="button"
-       routerLink="/appareils/new-appareil"> Ajouter un nouvelappareil</a>
+       routerLink="/appareils/new-appareil"> Ajouter un nouvel appareil</a>
   </div>
 
   <p class="mb-4 text-center">
@@ -16,7 +16,7 @@
                        [index]="i"
                        [id]="appareil.id"></app-appareil-view>
   </ul>
-  <div class="text-center mb-5">
+  <div class="text-center mb-5" *ngIf="isAuth">
     <button class="btn btn-success mt-5 mr-2"
             (click)="onToutAllumer()">Tout allumer</button>
     <button class="btn btn-danger mt-5 mr-2"

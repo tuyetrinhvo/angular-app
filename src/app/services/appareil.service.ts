@@ -83,7 +83,6 @@ export class AppareilService {
     }
 
     removeAppareil(i: number) {
-
         const appareilToRemove = this.appareils.findIndex(
             (ele) => {
                 if (ele === this.appareils[i]) {

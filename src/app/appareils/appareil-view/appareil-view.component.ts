@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AppareilService } from 'src/app/services/appareil.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-appareil-view',
@@ -13,9 +14,21 @@ export class AppareilViewComponent implements OnInit {
   @Input() index: number;
   @Input() id: number;
 
+  isAuth: boolean;
+
   constructor(private appareilSerivce: AppareilService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if (user) {
+          this.isAuth = true;
+        } else {
+          this.isAuth = false;
+        }
+      }
+    );
+  }
 
   onSwitch() {
     if (this.appareilStatus === 'allumé') {
