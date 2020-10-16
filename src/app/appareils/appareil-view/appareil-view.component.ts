@@ -40,9 +40,9 @@ export class AppareilViewComponent implements OnInit {
 
   getColor() {
     if (this.appareilStatus === 'allumé') {
-      return 'green';
+      return 'royalblue';
     } else {
-      return 'red';
+      return 'gray';
     }
   }
 
