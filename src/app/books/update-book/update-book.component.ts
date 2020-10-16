@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Book } from 'src/app/models/Book.model';
 import { BooksService } from 'src/app/services/books.service';
 
 @Component({
-  selector: 'app-book-form',
-  templateUrl: './book-form.component.html',
-  styleUrls: ['./book-form.component.scss']
+  selector: 'app-update-book',
+  templateUrl: './update-book.component.html',
+  styleUrls: ['./update-book.component.scss']
 })
-export class BookFormComponent implements OnInit {
+export class UpdateBookComponent implements OnInit {
 
-  bookForm: FormGroup;
+  bookFormUpdate: FormGroup;
   fileIsUploading = false;
   fileUrl: string;
   fileUploaded = false;
+  @Input() book: Book;
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,20 +29,20 @@ export class BookFormComponent implements OnInit {
   }
 
   initForm() {
-    this.bookForm = this.formBuilder.group({
-      title: ['', Validators.required],
-      author: ['', Validators.required]
+    this.bookFormUpdate = this.formBuilder.group({
+      title: [this.book.title, Validators.required],
+      author: [this.book.author, Validators.required]
     });
   }
 
-  onSaveBook() {
-    const title = this.bookForm.get('title').value;
-    const author = this.bookForm.get('author').value;
+  onUpdateBook() {
+    const title = this.bookFormUpdate.get('title').value;
+    const author = this.bookFormUpdate.get('author').value;
     const newBook = new Book(title, author);
     if (this.fileUrl && this.fileUrl !== '') {
       newBook.photoUrl = this.fileUrl;
     }
-    this.booksService.createNewBook(newBook);
+    this.booksService.updateBook(this.book, newBook);
     this.router.navigate(['/books']);
   }
 

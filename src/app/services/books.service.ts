@@ -9,9 +9,7 @@ export class BooksService {
   books: Book[] = [];
   bookSubject = new Subject<Book[]>();
 
-  constructor() {
-
-  }
+  constructor() { }
 
   // prendre le contenu du books et remettra à travers du bookSubject
   emitBooks() {
@@ -44,6 +42,13 @@ export class BooksService {
   }
 
   createNewBook(newBook: Book) {
+    this.books.push(newBook);
+    this.saveBooks();
+    this.emitBooks();
+  }
+
+  updateBook(book: Book, newBook: Book) {
+    this.removeBook(book);
     this.books.push(newBook);
     this.saveBooks();
     this.emitBooks();

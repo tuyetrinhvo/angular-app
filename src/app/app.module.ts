@@ -27,6 +27,7 @@ import { HeaderComponent } from './header/header.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
 import { ApplicationListComponent } from './application-list/application-list.component';
+import { UpdateBookComponent } from './books/update-book/update-book.component';
 
 @NgModule({
 	declarations: [
@@ -48,6 +49,7 @@ import { ApplicationListComponent } from './application-list/application-list.co
 		BookFormComponent,
 		HeaderComponent,
 		ApplicationListComponent,
+		UpdateBookComponent,
 	],
 	imports: [
 		BrowserModule,

@@ -11,6 +11,8 @@ import { BooksService } from 'src/app/services/books.service';
 export class SingleBookComponent implements OnInit {
 
   book: Book;
+  check = true;
+  isUpdate = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,13 +25,26 @@ export class SingleBookComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.booksService.getSingleBook(+id).then(
       (book: Book) => {
-        this.book = book;
+        if (book === null) {
+          this.check = false;
+        } else {
+          this.book = book;
+        }
       }
     );
   }
 
+  onUpdate() {
+    this.isUpdate = true;
+  }
+
   onGoBackToBooksList() {
     this.router.navigate(['/books']);
+  }
+
+  onDeleteBook() {
+    this.booksService.removeBook(this.book);
+    this.onGoBackToBooksList();
   }
 
 }

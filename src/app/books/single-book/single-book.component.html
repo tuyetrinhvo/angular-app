@@ -1,19 +1,20 @@
-<style>
-  img {
-    max-width: 300px;
-  }
-
-  h1 {
-    font-weight: 700;
-  }
-
-</style>
 <div class="col-xs-12 col-lg-12">
-  <h1 class="mb-5 text-center">{{book.title}}</h1>
-  <h3 class="mb-5 text-center">Par : {{book.author}}</h3>
-  <div class="text-center mt-3">
-    <img *ngIf="book.photoUrl" [src]="book.photoUrl">
+  <div *ngIf="!isUpdate">
+    <h1 class="mb-5 text-center" *ngIf="check" style="font-weight: 700;">{{book.title}}</h1>
+    <h1 class="mb-5 text-center" *ngIf="!check" style="font-weight: 700;">Erreur 404</h1>
+    <h3 class="mb-5 text-center" *ngIf="check">{{book.author}}</h3>
+    <h3 class="mb-5 text-center" *ngIf="!check">Ce livre n'existe pas !</h3>
+    <div class="text-center mt-3" *ngIf="check">
+      <img *ngIf="book.photoUrl" [src]="book.photoUrl" style="max-width: 300px;">
+    </div>
+    <div class="text-center" *ngIf="check">
+      <button class="btn btn-outline-secondary mt-5 mr-3"
+              (click)="onUpdate()">Modifier</button>
+      <button class="btn btn-outline-danger mt-5"
+              (click)="onDeleteBook()">Supprimer</button>
+    </div>
   </div>
+  <app-update-book *ngIf="isUpdate" [book]="book"></app-update-book>
   <div class="text-center">
     <button class="btn btn-secondary mt-5"
             (click)="onGoBackToBooksList()">Retourner à la liste des livres</button>

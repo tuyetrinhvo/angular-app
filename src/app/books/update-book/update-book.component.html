@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-lg-12">
-  <h2 class="mb-5 text-center">Nouveau livre</h2>
-  <form [formGroup]="bookForm" (ngSubmit)="onSaveBook()">
+  <h2 class="mb-5 text-center">Modification du livre <span style="font-weight: 700;">{{ book.title }}</span></h2>
+  <form [formGroup]="bookFormUpdate" (ngSubmit)="onUpdateBook()">
     <div class="form-group">
       <label for="title">Titre</label>
       <input type="text" id="title" class="form-control" formControlName="title">
@@ -21,7 +21,7 @@
     <div class="text-center">
       <button class="btn btn-secondary mt-5"
               type="submit"
-              [disabled]="bookForm.invalid || fileIsUploading">Ajouter</button>
+              [disabled]="bookFormUpdate.invalid || fileIsUploading">Modifier</button>
     </div>
   </form>
 </div>
