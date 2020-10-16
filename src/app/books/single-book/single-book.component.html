@@ -7,7 +7,7 @@
     <div class="text-center mt-3" *ngIf="check">
       <img *ngIf="book.photoUrl" [src]="book.photoUrl" style="max-width: 300px;">
     </div>
-    <div class="text-center" *ngIf="check">
+    <div class="text-center" *ngIf="isAuth && check">
       <button class="btn btn-outline-secondary mt-5 mr-3"
               (click)="onUpdate()">Modifier</button>
       <button class="btn btn-outline-danger mt-5"

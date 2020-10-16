@@ -63,7 +63,7 @@ export class BooksService {
         }
       ).catch(
         (error) => {
-          console.log(error);
+          console.log('Erreur : ' + error);
         }
       );
     }
@@ -89,7 +89,7 @@ export class BooksService {
             console.log('Chargement...');
           },
           (error) => {
-            console.log(error);
+            console.log('Erreur : ' + error);
             reject();
           },
           () => {
