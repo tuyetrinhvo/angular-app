@@ -1,0 +1,27 @@
+<div class="col-xs-12 col-lg-12">
+  <div>
+    <h1 class="mb-5 text-center" *ngIf="check" style="font-weight: 700;">{{post.title}}</h1>
+    <h1 class="mb-5 text-center" *ngIf="!check" style="font-weight: 700;">Erreur 404</h1>
+    <div class="text-center">
+      <h5 class="mb-5 text-justify" *ngIf="check" style="line-height: 200%;">{{post.content}}</h5>
+    </div>
+    <h3 class="mb-5 text-center" *ngIf="!check">Ce post n'existe pas !</h3>
+    <div class="text-center mt-3" *ngIf="check">
+      <h5 *ngIf="post.loveIt > 0">
+        <span role="img" aria-label="heart" class="mr-2"> ❤️ </span> : <span class="ml-1">{{ post.loveIt }}</span>
+      </h5>
+      <h5 *ngIf="post.loveIt < 0">
+        <span role=" img" aria-label="person gesturing no" class="mr-2"> 🙅 </span> :
+        <span class="ml-1">{{ post.loveIt }}</span>
+      </h5>
+    </div>
+    <div class="text-center" *ngIf="isAuth && check">
+      <button class="btn btn-outline-danger mt-5"
+              (click)="onDeletePost()">Supprimer</button>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-secondary mt-5"
+            (click)="onGoBackToPostList()">Retourner à la liste des livres</button>
+  </div>
+</div>

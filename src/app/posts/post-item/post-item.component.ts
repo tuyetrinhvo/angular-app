@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PostsService } from 'src/app/services/posts.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-post-item',
@@ -7,32 +10,52 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PostItemComponent implements OnInit {
 
-
   @Input() postTitle: string;
   @Input() postContent: string;
   @Input() postCreatedAt: string;
-  @Input() postLoveIts: number;
+  @Input() postLoveIt: number;
   @Input() postIndex: number;
 
-  constructor() { }
+  isAuth: boolean;
+
+  constructor(
+    private router: Router,
+    private postsService: PostsService) { }
 
   ngOnInit(): void {
+    firebase.auth().onAuthStateChanged(
+      (user) => {
+        if (user) {
+          this.isAuth = true;
+        } else {
+          this.isAuth = false;
+        }
+      }
+    );
   }
 
-  onLoveIts() {
-    this.postLoveIts++;
+  onLoveIt() {
+    this.postsService.setLoveIt(this.postIndex);
   }
 
-  onNotLoveIts() {
-    this.postLoveIts--;
+  onNotLoveIt() {
+    this.postsService.setNotLoveIt(this.postIndex);
   }
 
   getColor() {
-    if (this.postLoveIts > 0) {
-      return 'green';
-    } else if (this.postLoveIts < 0) {
-      return 'red';
+    if (this.postLoveIt > 0) {
+      return 'royalblue';
+    } else if (this.postLoveIt < 0) {
+      return 'gray';
     }
+  }
+
+  onDeletePost() {
+    this.postsService.removePost(this.postIndex);
+  }
+
+  onViewPost(id: number) {
+    this.router.navigate(['/posts', 'view', id]);
   }
 
 }

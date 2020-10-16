@@ -11,8 +11,8 @@ import { BooksListComponent } from './books/books-list/books-list.component';
 import { SingleBookComponent } from './books/single-book/single-book.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
-import { PostItemComponent } from './posts/post-item/post-item.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
+import { SinglePostComponent } from './posts/single-post/single-post.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'appareils/:id', component: SingleAppareilComponent },
   { path: 'posts', component: PostsListComponent },
   { path: 'posts/new-post', canActivate: [AuthGuardService], component: PostFormComponent },
-  { path: 'posts/view/:id', component: PostItemComponent },
+  { path: 'posts/view/:id', component: SinglePostComponent },
   { path: 'users', component: UsersListComponent },
   { path: 'users/new-user', canActivate: [AuthGuardService], component: NewUserComponent },
   { path: 'books', component: BooksListComponent },

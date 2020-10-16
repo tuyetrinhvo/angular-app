@@ -17,12 +17,17 @@ export class AppareilService {
     }
 
     getAppareilById(id: number) {
-        const appareil = this.appareils.find(
-            (s) => {
-                return s.id === id;
+        return new Promise(
+            (resolve, reject) => {
+                firebase.database().ref('/appareils/' + id).once('value').then(
+                    (data) => {
+                        resolve(data.val());
+                    }, (error) => {
+                        reject(error);
+                    }
+                );
             }
         );
-        return appareil;
     }
 
     switchOnAll() {

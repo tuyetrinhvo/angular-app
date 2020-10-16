@@ -1,25 +1,25 @@
 <li [ngClass]="{'list-group-item':true,
-                'list-group-item-success': postLoveIts > 0,
-                'list-group-item-danger': postLoveIts < 0}">
+                'list-group-item-primary': postLoveIt > 0,
+                'list-group-item-dark': postLoveIt < 0}"
+    (click)="onViewPost(postIndex)"
+    style="cursor: pointer;">
   <div [ngStyle]="{color: getColor()}">
     <div class="row">
       <h4 class="col-lg-9 col-sm-8"> {{ postTitle }}</h4>
-
-      <div class="col-lg-3 col-sm-4 mb-2">
-        <p style="font-style: italic;">
-          {{ postCreatedAt | date: 'dd/M/y, à H:mm:ss' }}
+      <div class="col-lg-3 col-sm-4">
+        <p style="font-style: italic;" class="pt-1">Le
+          {{ postCreatedAt }}
         </p>
       </div>
     </div>
-    <p> {{ postContent }}</p>
-    <div>
-      <button class="btn btn-success btn-sm mr-1" (click)="onLoveIts()">
-        Love It
+    <p class="mt-3"> {{ postContent }}</p>
+    <div *ngIf="isAuth">
+      <button class="btn btn-primary btn-sm mr-1" (click)="onLoveIt()">
+        Love It <span role="img" aria-label="heart"> ❤️ </span>
       </button>
-      <button class="btn btn-danger btn-sm" (click)="onNotLoveIts()">
-        Don't Love It
+      <button class="btn btn-dark btn-sm" (click)="onNotLoveIt()">
+        Don't Love It <span role="img" aria-label="person gesturing no"> 🙅 </span>
       </button>
     </div>
-
   </div>
 </li>

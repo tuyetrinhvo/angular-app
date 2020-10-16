@@ -1,36 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Post } from 'src/app/models/Post.model';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-posts-list',
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.scss']
 })
-export class PostsListComponent implements OnInit {
+export class PostsListComponent implements OnInit, OnDestroy {
 
-  posts = [
-    {
-      title: 'First Post',
-      content: "Le serveur de développement s'est lancé lorsque vous avez exécuté  ng serve  après un  npm install",
-      loveIts: 0,
-      created_at: new Date()
-    },
-    {
-      title: 'Second Post',
-      content: 'PostListComponent se trouve dans un sous-dossier du dossier app.',
-      loveIts: 0,
-      created_at: new Date()
-    },
-    {
-      title: 'Third Post',
-      content: 'PostListItemComponent se trouve soit dans un sous-dossier du dossier app, soit dans un sous-dossier du dossier post-list',
-      loveIts: 0,
-      created_at: new Date()
-    }
-  ];
+  posts: Post[];
 
-  constructor() { }
+  postSubscription: Subscription;
+
+  constructor(
+    private router: Router,
+    private postsService: PostsService
+  ) { }
 
   ngOnInit(): void {
+    this.postSubscription = this.postsService.postsSubject.subscribe(
+      (posts: Post[]) => {
+        this.posts = posts;
+      }
+    );
+    this.postsService.getPosts();
+    this.postsService.emitPosts();
+  }
+
+  onNewPost() {
+    this.router.navigate(['/posts', 'new-post']);
+  }
+
+  ngOnDestroy() {
+    this.postSubscription.unsubscribe();
   }
 
 }

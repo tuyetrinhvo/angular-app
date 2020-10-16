@@ -28,6 +28,8 @@ import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { PostFormComponent } from './posts/post-form/post-form.component';
 import { ApplicationListComponent } from './application-list/application-list.component';
 import { UpdateBookComponent } from './books/update-book/update-book.component';
+import { PostsService } from './services/posts.service';
+import { SinglePostComponent } from './posts/single-post/single-post.component';
 
 @NgModule({
 	declarations: [
@@ -50,6 +52,7 @@ import { UpdateBookComponent } from './books/update-book/update-book.component';
 		HeaderComponent,
 		ApplicationListComponent,
 		UpdateBookComponent,
+		SinglePostComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -63,7 +66,8 @@ import { UpdateBookComponent } from './books/update-book/update-book.component';
 		AuthService,
 		AuthGuardService,
 		UserService,
-		BooksService
+		BooksService,
+		PostsService
 	],
 	bootstrap: [
 		AppComponent

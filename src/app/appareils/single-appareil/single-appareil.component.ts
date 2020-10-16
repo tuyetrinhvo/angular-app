@@ -11,6 +11,7 @@ export class SingleAppareilComponent implements OnInit {
 
   name: string;
   status: string;
+  check: boolean;
 
   constructor(
     private appareilService: AppareilService,
@@ -19,8 +20,17 @@ export class SingleAppareilComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
-    this.name = this.appareilService.getAppareilById(+id).name;
-    this.status = this.appareilService.getAppareilById(+id).status;
+    this.appareilService.getAppareilById(+id).then(
+      (data) => {
+        if (data === null) {
+          this.check = false;
+        } else {
+          this.name = data['name'];
+          this.status = data['status'];
+          this.check = true;
+        }
+      }
+    );
   }
 
 }
