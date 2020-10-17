@@ -15,6 +15,7 @@ export class BookFormComponent implements OnInit {
   fileIsUploading = false;
   fileUrl: string;
   fileUploaded = false;
+  fileTooBig = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -51,8 +52,13 @@ export class BookFormComponent implements OnInit {
         this.fileUrl = url;
         this.fileIsUploading = false;
         this.fileUploaded = true;
+        this.fileTooBig = false;
       }
-    );
+    ).catch(
+      () => {
+        this.fileTooBig = true;
+        this.fileUploaded = false;
+      });
   }
 
   detectFile(eventOfDOM: any) {

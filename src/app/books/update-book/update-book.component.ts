@@ -15,6 +15,7 @@ export class UpdateBookComponent implements OnInit {
   fileIsUploading = false;
   fileUrl: string;
   fileUploaded = false;
+  fileTooBig = false;
   @Input() book: Book;
 
 
@@ -53,8 +54,13 @@ export class UpdateBookComponent implements OnInit {
         this.fileUrl = url;
         this.fileIsUploading = false;
         this.fileUploaded = true;
+        this.fileTooBig = false;
       }
-    );
+    ).catch(
+      () => {
+        this.fileTooBig = true;
+        this.fileUploaded = false;
+      });;
   }
 
   detectFile(eventOfDOM: any) {
