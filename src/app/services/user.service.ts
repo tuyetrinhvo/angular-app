@@ -10,6 +10,9 @@ export class UserService {
   users: User[] = [];
   userSubject = new Subject<User[]>();
 
+  constructor() {
+  }
+
   emitUsers() {
     this.userSubject.next(this.users);
   }
@@ -36,7 +39,11 @@ export class UserService {
       (resolve, reject) => {
         firebase.database().ref('/characters/' + id).once('value').then(
           (data) => {
-            resolve(data.val());
+            if (data.val() !== null) {
+              resolve(data.val());
+            } else {
+              reject();
+            }
           }, (error) => {
             console.log('Erreur ' + error);
             reject(error);
@@ -48,7 +55,11 @@ export class UserService {
 
   removeUser(userId: number) {
     firebase.database().ref('/characters/' + userId).remove();
-    console.log('test');
+    this.emitUsers();
+  }
+
+  updateUser(user: User, userId: number) {
+    firebase.database().ref('/characters/' + userId).update(user);
     this.emitUsers();
   }
 

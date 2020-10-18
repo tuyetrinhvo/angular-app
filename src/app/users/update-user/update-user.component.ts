@@ -13,6 +13,7 @@ export class UpdateUserComponent implements OnInit {
 
   userUpdateForm: FormGroup;
   @Input() user: User;
+  @Input() index: number;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -42,7 +43,7 @@ export class UpdateUserComponent implements OnInit {
       formValue['job'],
       formValue['hobbies'] ? formValue['hobbies'] : []
     );
-    this.userService.addUser(newUser);
+    this.userService.updateUser(newUser, this.index);
     this.router.navigate(['/users']);
   }
 

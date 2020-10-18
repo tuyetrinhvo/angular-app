@@ -1,0 +1,27 @@
+<div class="col-xs-12 col-lg-12">
+  <div *ngIf="!isUpdate">
+    <h1 class="mb-5 text-center" *ngIf="check" style="font-weight: 700;">{{user.lastName}} {{user.firstName}}</h1>
+    <h1 class="mb-5 text-center" *ngIf="!check" style="font-weight: 700;">Erreur 404</h1>
+    <h3 class="mb-5 text-center" *ngIf="!check">Ce personnage n'existe pas !</h3>
+    <div *ngIf="check">
+      <h3 class="mb-5 text-center">Son métier préféré: {{user.job}}</h3>
+      <p class="mb-5 text-center">Son adresse d'email: {{user.email}}</p>
+      <p *ngIf="user.hobbies && user.hobbies.length > 0" class="text-center">
+        Ses loisirs préférés :
+        <span *ngFor="let hobby of user.hobbies"> {{ hobby }},</span>
+      </p>
+      <div class="text-center" *ngIf="isAuth && check">
+        <button class="btn btn-outline-secondary mt-5 mr-3"
+                (click)="onUpdate()">Modifier</button>
+        <button class="btn btn-outline-danger mt-5"
+                (click)="onDelete()">Supprimer</button>
+      </div>
+    </div>
+  </div>
+  <app-update-user [index]="id" [user]="user" *ngIf="check && isUpdate"></app-update-user>
+  <div class="text-center">
+    <a class="btn btn-secondary mt-5"
+       type="button"
+       routerLink="/users">Retourner à la liste des personnages</a>
+  </div>
+</div>

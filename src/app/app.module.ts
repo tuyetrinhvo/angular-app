@@ -31,6 +31,7 @@ import { UpdateBookComponent } from './books/update-book/update-book.component';
 import { PostsService } from './services/posts.service';
 import { SinglePostComponent } from './posts/single-post/single-post.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
+import { ViewUserComponent } from './users/view-user/view-user.component';
 
 @NgModule({
 	declarations: [
@@ -55,6 +56,7 @@ import { UpdateUserComponent } from './users/update-user/update-user.component';
 		UpdateBookComponent,
 		SinglePostComponent,
 		UpdateUserComponent,
+		ViewUserComponent,
 	],
 	imports: [
 		BrowserModule,

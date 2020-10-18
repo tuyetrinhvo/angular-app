@@ -16,6 +16,7 @@ import { SinglePostComponent } from './posts/single-post/single-post.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NewUserComponent } from './users/new-user/new-user.component';
 import { UsersListComponent } from './users/users-list/users-list.component';
+import { ViewUserComponent } from './users/view-user/view-user.component';
 
 const routes: Routes = [
   { path: 'appareils', component: AppareilListComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'posts/view/:id', component: SinglePostComponent },
   { path: 'users', component: UsersListComponent },
   { path: 'users/new-user', canActivate: [AuthGuardService], component: NewUserComponent },
+  { path: 'users/view/:id', component: ViewUserComponent },
   { path: 'books', component: BooksListComponent },
   { path: 'books/new-book', canActivate: [AuthGuardService], component: BookFormComponent },
   { path: 'books/view/:id', component: SingleBookComponent },

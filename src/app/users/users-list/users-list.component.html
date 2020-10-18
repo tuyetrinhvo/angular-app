@@ -1,28 +1,23 @@
 <div class="col-xs-12 col-lg-12">
   <h1 class="mb-5 text-center">Liste des personnages</h1>
-  <ul class="list-group">
-    <li class="list-group-item" *ngFor="let user of users; let i = index">
-      <div *ngIf="!isUpdate">
-        <h3>{{ user.firstName }} {{ user.lastName }}</h3>
-        <p class="mt-3">Son adresse d'email: {{ user.email }}</p>
-        <p class="mt-3">Genre : {{ user.job }}</p>
-        <p *ngIf="user.hobbies && user.hobbies.length > 0">
-          Ses loisirs préférés :
-          <span *ngFor="let hobby of user.hobbies"> {{ hobby }},</span>
-        </p>
-        <div class="text-center">
-          <button class="btn btn-sm btn-outline-secondary mr-2" (click)="onUpdateUser()">Modifier</button>
-          <button class="btn btn-sm btn-outline-danger" (click)="onDeleteUser(i)">Supprimer</button>
-        </div>
-      </div>
-      <app-update-user *ngIf="isUpdate" [user]="user"></app-update-user>
-    </li>
-  </ul>
+  <div class="list-group">
+    <button class="list-group-item"
+            *ngFor="let user of users; let i = index"
+            (click)="onViewUser(i)">
+
+      <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+      <p class="mt-3">Son adresse d'email: {{ user.email }}</p>
+      <p class="mt-3">Son métier : {{ user.job }}</p>
+      <p *ngIf="user.hobbies && user.hobbies.length > 0">
+        Ses loisirs préférés :
+        <span *ngFor="let hobby of user.hobbies"> {{ hobby }},</span>
+      </p>
+
+    </button>
+  </div>
   <div class="text-center">
-    <a class="btn btn-secondary mt-5 mr-2"
+    <a class="btn btn-secondary mt-5"
        type="button"
        routerLink="/users/new-user">Ajouter un personnage</a>
   </div>
-
-
 </div>

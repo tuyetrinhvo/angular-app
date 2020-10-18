@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/User.model';
 import { UserService } from 'src/app/services/user.service';
@@ -9,13 +10,14 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss']
 })
-export class UsersListComponent implements OnInit {
+export class UsersListComponent implements OnInit, OnDestroy {
 
   users: User[];
   userSubscription: Subscription;
-  isUpdate = false;
 
-  constructor(private userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.userSubscription = this.userService.userSubject.subscribe(
@@ -31,12 +33,11 @@ export class UsersListComponent implements OnInit {
     this.userService.removeUser(i);
   }
 
-  onUpdateUser() {
-    this.isUpdate = true;
+  onViewUser(id: number) {
+    this.router.navigate(['/users', 'view', id]);
   }
 
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
-
   }
 }
