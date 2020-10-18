@@ -85,7 +85,11 @@ export class BooksService {
         const fileName = Date.now().toString();
         const upload = firebase.storage().ref().child('images/' + fileName + file.name).put(file);
         upload.on(firebase.storage.TaskEvent.STATE_CHANGED,
-          () => {
+          (snapshot) => {
+            if (snapshot.totalBytes > 100000) {
+              reject();
+              upload.cancel();
+            }
             console.log('Chargement...');
           },
           (error) => {
@@ -93,6 +97,7 @@ export class BooksService {
             reject();
           },
           () => {
+            console.log('Téléchargement terminé');
             resolve(upload.snapshot.ref.getDownloadURL());
           });
       }

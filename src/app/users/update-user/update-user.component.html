@@ -1,6 +1,6 @@
 <div class="col-xs-12 col-lg-12">
-  <h2 class="mb-5 text-center">Nouveau personnage</h2>
-  <form [formGroup]="userForm" (ngSubmit)="onSubmitForm()">
+  <h2 class="mb-5 text-center">Modifer personnage</h2>
+  <form [formGroup]="userUpdateForm" (ngSubmit)="onSubmitForm()">
     <div class="form-group">
       <label for="firstName">Prénom</label>
       <input type="text" id="firstName" class="form-control" formControlName="fN">
@@ -43,7 +43,7 @@
     <div class="text-center">
       <button class="btn btn-secondary mt-5"
               type="submit"
-              [disabled]="userForm.invalid">Ajouter</button>
+              [disabled]="userUpdateForm.invalid">Modifier</button>
     </div>
   </form>
 </div>

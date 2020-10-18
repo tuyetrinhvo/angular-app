@@ -1,17 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/User.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-new-user',
-  templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.scss']
+  selector: 'app-update-user',
+  templateUrl: './update-user.component.html',
+  styleUrls: ['./update-user.component.scss']
 })
-export class NewUserComponent implements OnInit {
+export class UpdateUserComponent implements OnInit {
 
-  userForm: FormGroup;
+  userUpdateForm: FormGroup;
+  @Input() user: User;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,17 +24,17 @@ export class NewUserComponent implements OnInit {
   }
 
   initForm() {
-    this.userForm = this.formBuilder.group({
-      fN: ['', Validators.required],
-      lN: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      job: ['Assassin', Validators.required],
-      hobbies: this.formBuilder.array([])
+    this.userUpdateForm = this.formBuilder.group({
+      fN: [this.user.firstName, Validators.required],
+      lN: [this.user.lastName, Validators.required],
+      email: [this.user.email, [Validators.required, Validators.email]],
+      job: [this.user.job, Validators.required],
+      hobbies: this.formBuilder.array([this.user.hobbies ? this.user.hobbies : []])
     });
   }
 
   onSubmitForm() {
-    const formValue = this.userForm.value;
+    const formValue = this.userUpdateForm.value;
     const newUser = new User(
       formValue['fN'],
       formValue['lN'],
@@ -46,7 +47,7 @@ export class NewUserComponent implements OnInit {
   }
 
   getHobbies(): FormArray {
-    return this.userForm.get('hobbies') as FormArray;
+    return this.userUpdateForm.get('hobbies') as FormArray;
   }
 
   onAddHobby() {

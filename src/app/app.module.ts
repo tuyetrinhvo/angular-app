@@ -30,6 +30,7 @@ import { ApplicationListComponent } from './application-list/application-list.co
 import { UpdateBookComponent } from './books/update-book/update-book.component';
 import { PostsService } from './services/posts.service';
 import { SinglePostComponent } from './posts/single-post/single-post.component';
+import { UpdateUserComponent } from './users/update-user/update-user.component';
 
 @NgModule({
 	declarations: [
@@ -53,6 +54,7 @@ import { SinglePostComponent } from './posts/single-post/single-post.component';
 		ApplicationListComponent,
 		UpdateBookComponent,
 		SinglePostComponent,
+		UpdateUserComponent,
 	],
 	imports: [
 		BrowserModule,

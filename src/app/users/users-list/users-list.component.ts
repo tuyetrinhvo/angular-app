@@ -13,6 +13,7 @@ export class UsersListComponent implements OnInit {
 
   users: User[];
   userSubscription: Subscription;
+  isUpdate = false;
 
   constructor(private userService: UserService) { }
 
@@ -22,7 +23,16 @@ export class UsersListComponent implements OnInit {
         this.users = users;
       }
     );
+    this.userService.getUsers();
     this.userService.emitUsers();
+  }
+
+  onDeleteUser(i: number) {
+    this.userService.removeUser(i);
+  }
+
+  onUpdateUser() {
+    this.isUpdate = true;
   }
 
   ngOnDestroy() {
