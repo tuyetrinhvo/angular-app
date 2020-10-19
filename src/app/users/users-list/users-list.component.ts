@@ -29,10 +29,6 @@ export class UsersListComponent implements OnInit, OnDestroy {
     this.userService.emitUsers();
   }
 
-  onDeleteUser(i: number) {
-    this.userService.removeUser(i);
-  }
-
   onViewUser(id: number) {
     this.router.navigate(['/users', 'view', id]);
   }

@@ -53,13 +53,22 @@ export class UserService {
     );
   }
 
-  removeUser(userId: number) {
-    firebase.database().ref('/characters/' + userId).remove();
+  removeUser(user: User) {
+    const userToRemove = this.users.findIndex(
+      (ele) => {
+        if (ele === user) {
+          return true;
+        }
+      }
+    );
+    this.users.splice(userToRemove, 1);
+    this.saveUsers();
     this.emitUsers();
   }
 
   updateUser(user: User, userId: number) {
     firebase.database().ref('/characters/' + userId).update(user);
+    this.saveUsers();
     this.emitUsers();
   }
 

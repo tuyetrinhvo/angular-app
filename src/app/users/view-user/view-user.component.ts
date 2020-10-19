@@ -52,7 +52,7 @@ export class ViewUserComponent implements OnInit {
   }
 
   onDelete() {
-    this.userService.removeUser(this.id);
+    this.userService.removeUser(this.user);
     this.router.navigate(['/users']);
   }
 
