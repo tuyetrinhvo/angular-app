@@ -15,9 +15,6 @@ export class AppareilListComponent implements OnInit, OnDestroy {
   appareils: any[];
   lastUpdate = new Date();
 
-  seconds: number;
-  counterSubscription: Subscription;
-
   appareilsSubscription: Subscription;
 
   isAuth: boolean;
@@ -32,13 +29,6 @@ export class AppareilListComponent implements OnInit, OnDestroy {
     );
     this.appareilSerivce.getAppareils();
     this.appareilSerivce.emitAppareilSubject();
-
-    const counter = Observable.interval(1000);
-    this.counterSubscription = counter.subscribe(
-      (data: number) => {
-        this.seconds = data;
-      }
-    );
 
     firebase.auth().onAuthStateChanged(
       (user) => {
@@ -61,7 +51,6 @@ export class AppareilListComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.counterSubscription.unsubscribe();
     this.appareilsSubscription.unsubscribe();
   }
 

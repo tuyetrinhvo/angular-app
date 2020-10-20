@@ -7,7 +7,7 @@
   </div>
 
   <p class="mb-4 text-center">
-    Nous sommes le {{ lastUpdate | date: 'dd/M/y' }}. Temps passé sur cette page : {{ seconds }} secondes.
+    Nous sommes le {{ lastUpdate | date: 'dd/M/y' }}.
   </p>
   <ul class="list-group">
     <app-appareil-view *ngFor="let appareil of appareils; let i = index"
